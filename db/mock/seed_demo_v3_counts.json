@@ -1,0 +1,59 @@
+{
+  "new_records": {
+    "lms.\"user\"": 8,
+    "lms.course": 1,
+    "lms.context": 1,
+    "lms.enrol": 2,
+    "lms.user_enrolments": 17,
+    "lms.role_assignments": 17,
+    "lms.course_sections": 15,
+    "lms.assign": 10,
+    "lms.course_modules": 36,
+    "lms.grade_items": 16,
+    "lms.quiz": 6,
+    "lms.resource": 17,
+    "lms.grade_categories": 3,
+    "lms.folder": 1,
+    "lms.forum": 1,
+    "lms.attendance": 1,
+    "lms.course_modules_completion": 364,
+    "lms.assign_submission": 59,
+    "lms.assign_grades": 49,
+    "lms.grade_grades": 108,
+    "lms.quiz_attempts": 36,
+    "lms.quiz_grades": 14,
+    "lms.course_completions": 15,
+    "lms.user_lastaccess": 15,
+    "lms.logstore_standard_log": 21,
+    "lms.attendance_statuses": 4,
+    "lms.attendance_sessions": 20,
+    "lms.attendance_log": 240,
+    "app.notifications": 17,
+    "app.learning_reminders": 17
+  },
+  "total_new_records": 1131,
+  "dataset_after_seed": {
+    "teachers": 3,
+    "students": 15,
+    "courses": 5,
+    "course_activities": 52,
+    "assignments": 18,
+    "quizzes": 10
+  },
+  "new_course_progress_profiles": [
+    10.0,
+    35.0,
+    65.0,
+    80.0,
+    100.0
+  ],
+  "new_course_attendance_profiles": [
+    100,
+    90,
+    75,
+    50,
+    null
+  ],
+  "id_conflicts_against_export": 0,
+  "executed": false
+}

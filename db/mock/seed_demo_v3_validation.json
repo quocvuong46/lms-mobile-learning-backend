@@ -1,0 +1,334 @@
+{
+  "mode": "offline_only_no_database_connection",
+  "sources_sha256": {
+    "lms_mobile_learning_schema.sql": "f72916f16b375faa640a7880575b728642c51bef0193fb577a1ed305dc5b393c",
+    "current_mock_data.sql": "a2555acdeb370e08b25cb5d85287475bbdcbb60779a67f971d026da57eab9f4f"
+  },
+  "seed_sha256": "7198c762a108fda6110fe147ce2d60d9c452ba1b2d22a2b64abeafbb0f5630ee",
+  "checks": [
+    "exported columns",
+    "required columns",
+    "primary keys against export",
+    "unique constraints against export",
+    "exported foreign keys",
+    "table insertion order",
+    "Moodle course/module/instance/section relations",
+    "attendance session/status/student relations",
+    "student enrolment for grades",
+    "progress and attendance profiles",
+    "submission and attempt status diversity",
+    "zero versus null grades"
+  ],
+  "primary_keys": {
+    "lms.\"user\"": {
+      "column": "id",
+      "min": 3000103,
+      "max": 3000215
+    },
+    "lms.course": {
+      "column": "id",
+      "min": 3000015,
+      "max": 3000015
+    },
+    "lms.context": {
+      "column": "id",
+      "min": 3000015,
+      "max": 3000015
+    },
+    "lms.enrol": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000002
+    },
+    "lms.user_enrolments": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000017
+    },
+    "lms.role_assignments": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000017
+    },
+    "lms.course_sections": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000015
+    },
+    "lms.assign": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000010
+    },
+    "lms.course_modules": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000036
+    },
+    "lms.grade_items": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000016
+    },
+    "lms.quiz": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000006
+    },
+    "lms.resource": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000017
+    },
+    "lms.grade_categories": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000003
+    },
+    "lms.folder": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000001
+    },
+    "lms.forum": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000001
+    },
+    "lms.attendance": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000001
+    },
+    "lms.course_modules_completion": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000364
+    },
+    "lms.assign_submission": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000059
+    },
+    "lms.assign_grades": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000049
+    },
+    "lms.grade_grades": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000108
+    },
+    "lms.quiz_attempts": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000036
+    },
+    "lms.quiz_grades": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000014
+    },
+    "lms.course_completions": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000015
+    },
+    "lms.user_lastaccess": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000015
+    },
+    "lms.logstore_standard_log": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000021
+    },
+    "lms.attendance_statuses": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000004
+    },
+    "lms.attendance_sessions": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000020
+    },
+    "lms.attendance_log": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000240
+    },
+    "app.notifications": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000017
+    },
+    "app.learning_reminders": {
+      "column": "id",
+      "min": 3000001,
+      "max": 3000017
+    }
+  },
+  "foreign_keys": [
+    {
+      "table": "lms.assign_grades",
+      "definition": "FOREIGN KEY (assignment) REFERENCES lms.assign(id)"
+    },
+    {
+      "table": "lms.assign_submission",
+      "definition": "FOREIGN KEY (assignment) REFERENCES lms.assign(id)"
+    },
+    {
+      "table": "lms.course",
+      "definition": "FOREIGN KEY (category) REFERENCES lms.course_categories(id)"
+    },
+    {
+      "table": "lms.course_completions",
+      "definition": "FOREIGN KEY (course) REFERENCES lms.course(id)"
+    },
+    {
+      "table": "lms.course_completions",
+      "definition": "FOREIGN KEY (userid) REFERENCES lms.\"user\"(id)"
+    },
+    {
+      "table": "lms.course_modules_completion",
+      "definition": "FOREIGN KEY (coursemoduleid) REFERENCES lms.course_modules(id)"
+    },
+    {
+      "table": "lms.course_modules_completion",
+      "definition": "FOREIGN KEY (userid) REFERENCES lms.\"user\"(id)"
+    },
+    {
+      "table": "lms.course_modules",
+      "definition": "FOREIGN KEY (course) REFERENCES lms.course(id)"
+    },
+    {
+      "table": "lms.course_modules",
+      "definition": "FOREIGN KEY (groupingid) REFERENCES lms.groupings(id)"
+    },
+    {
+      "table": "lms.course_modules",
+      "definition": "FOREIGN KEY (module) REFERENCES lms.modules(id)"
+    },
+    {
+      "table": "lms.course_sections",
+      "definition": "FOREIGN KEY (course) REFERENCES lms.course(id)"
+    },
+    {
+      "table": "lms.enrol",
+      "definition": "FOREIGN KEY (courseid) REFERENCES lms.course(id)"
+    },
+    {
+      "table": "lms.enrol",
+      "definition": "FOREIGN KEY (roleid) REFERENCES lms.role(id)"
+    },
+    {
+      "table": "lms.grade_categories",
+      "definition": "FOREIGN KEY (courseid) REFERENCES lms.course(id)"
+    },
+    {
+      "table": "lms.grade_categories",
+      "definition": "FOREIGN KEY (parent) REFERENCES lms.grade_categories(id)"
+    },
+    {
+      "table": "lms.grade_grades",
+      "definition": "FOREIGN KEY (itemid) REFERENCES lms.grade_items(id)"
+    },
+    {
+      "table": "lms.grade_grades",
+      "definition": "FOREIGN KEY (userid) REFERENCES lms.\"user\"(id)"
+    },
+    {
+      "table": "lms.grade_grades",
+      "definition": "FOREIGN KEY (usermodified) REFERENCES lms.\"user\"(id)"
+    },
+    {
+      "table": "lms.grade_items",
+      "definition": "FOREIGN KEY (categoryid) REFERENCES lms.grade_categories(id)"
+    },
+    {
+      "table": "lms.grade_items",
+      "definition": "FOREIGN KEY (courseid) REFERENCES lms.course(id)"
+    },
+    {
+      "table": "lms.logstore_standard_log",
+      "definition": "FOREIGN KEY (contextid) REFERENCES lms.context(id)"
+    },
+    {
+      "table": "lms.quiz_attempts",
+      "definition": "FOREIGN KEY (quiz) REFERENCES lms.quiz(id)"
+    },
+    {
+      "table": "lms.quiz_attempts",
+      "definition": "FOREIGN KEY (userid) REFERENCES lms.\"user\"(id)"
+    },
+    {
+      "table": "lms.quiz_grades",
+      "definition": "FOREIGN KEY (quiz) REFERENCES lms.quiz(id)"
+    },
+    {
+      "table": "lms.role_assignments",
+      "definition": "FOREIGN KEY (contextid) REFERENCES lms.context(id)"
+    },
+    {
+      "table": "lms.role_assignments",
+      "definition": "FOREIGN KEY (roleid) REFERENCES lms.role(id)"
+    },
+    {
+      "table": "lms.role_assignments",
+      "definition": "FOREIGN KEY (userid) REFERENCES lms.\"user\"(id)"
+    },
+    {
+      "table": "lms.user_enrolments",
+      "definition": "FOREIGN KEY (enrolid) REFERENCES lms.enrol(id)"
+    },
+    {
+      "table": "lms.user_enrolments",
+      "definition": "FOREIGN KEY (modifierid) REFERENCES lms.\"user\"(id)"
+    },
+    {
+      "table": "lms.user_enrolments",
+      "definition": "FOREIGN KEY (userid) REFERENCES lms.\"user\"(id)"
+    },
+    {
+      "table": "lms.user_lastaccess",
+      "definition": "FOREIGN KEY (userid) REFERENCES lms.\"user\"(id)"
+    }
+  ],
+  "emission_order": [
+    "lms.\"user\"",
+    "lms.course",
+    "lms.context",
+    "lms.assign",
+    "lms.quiz",
+    "lms.resource",
+    "lms.folder",
+    "lms.forum",
+    "lms.attendance",
+    "lms.attendance_statuses",
+    "lms.attendance_sessions",
+    "lms.attendance_log",
+    "app.notifications",
+    "app.learning_reminders",
+    "lms.enrol",
+    "lms.role_assignments",
+    "lms.course_sections",
+    "lms.course_modules",
+    "lms.grade_categories",
+    "lms.assign_submission",
+    "lms.assign_grades",
+    "lms.quiz_attempts",
+    "lms.quiz_grades",
+    "lms.course_completions",
+    "lms.user_lastaccess",
+    "lms.logstore_standard_log",
+    "lms.user_enrolments",
+    "lms.grade_items",
+    "lms.course_modules_completion",
+    "lms.grade_grades"
+  ],
+  "live_database_verified": false,
+  "seed_executed": false
+}
