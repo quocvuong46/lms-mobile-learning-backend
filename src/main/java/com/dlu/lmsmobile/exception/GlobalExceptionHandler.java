@@ -19,4 +19,13 @@ public class GlobalExceptionHandler {
         body.put("message", ex.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
     }
+
+    @ExceptionHandler(InvalidRequestException.class)
+    public ResponseEntity<Map<String, Object>> handleInvalidRequest(InvalidRequestException ex) {
+        Map<String, Object> body = new HashMap<>();
+        body.put("status", HttpStatus.BAD_REQUEST.value());
+        body.put("error", "Bad Request");
+        body.put("message", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
+    }
 }

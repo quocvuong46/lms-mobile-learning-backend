@@ -49,7 +49,7 @@ class LearningSupportApiTest {
             }
         };
         var notifications = new NotificationRepository(null) {
-            @Override public List<Map<String, Object>> findByUser(Long userId) {
+            @Override public List<Map<String, Object>> findByUser(Long userId, String role) {
                 reads.add("notifications:" + userId);
                 return List.of(Map.of("source_kind", "reminder", "is_read", false));
             }

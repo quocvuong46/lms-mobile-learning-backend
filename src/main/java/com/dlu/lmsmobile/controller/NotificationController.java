@@ -8,6 +8,13 @@ import java.util.Map;
 public class NotificationController {
     private final NotificationService service;
     public NotificationController(NotificationService service) { this.service = service; }
-    @GetMapping({"/students/{userId}/notifications", "/teachers/{userId}/notifications"})
-    public List<Map<String, Object>> notifications(@PathVariable Long userId) { return service.findByUser(userId); }
+    @GetMapping("/students/{userId}/notifications")
+    public List<Map<String, Object>> studentNotifications(@PathVariable Long userId) { 
+        return service.findByUser(userId, "student"); 
+    }
+
+    @GetMapping("/teachers/{userId}/notifications")
+    public List<Map<String, Object>> teacherNotifications(@PathVariable Long userId) { 
+        return service.findByUser(userId, "teacher"); 
+    }
 }

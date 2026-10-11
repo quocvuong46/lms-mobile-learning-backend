@@ -7,5 +7,5 @@ import java.util.Map;
 public class NotificationService {
     private final NotificationRepository repository;
     public NotificationService(NotificationRepository repository) { this.repository = repository; }
-    public List<Map<String, Object>> findByUser(Long userId) { return repository.findByUser(userId); }
+    public List<Map<String, Object>> findByUser(Long userId, String role) { return repository.findByUser(userId, role); }
 }
